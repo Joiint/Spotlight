@@ -208,17 +208,18 @@ class Spotlight private constructor(
       this.listener = listener
     }
 
-    fun build(): Spotlight {
+    /**
+     * Sets [finishOnTouchOutsideOfCurrentTarget] flag
+     * to enable/disable (true/false) finishing on touch outside feature.
+     */
+    fun setFinishOnTouchOutsideOfCurrentTarget(
+        finishOnTouchOutsideOfCurrentTarget: Boolean
+    ): Builder = apply {
+      this.finishOnTouchOutsideOfCurrentTarget = finishOnTouchOutsideOfCurrentTarget
+    }
 
-      /**
-       * Sets [finishOnTouchOutsideOfCurrentTarget] flag
-       * to enable/disable (true/false) finishing on touch outside feature.
-       */
-      fun setFinishOnTouchOutsideOfCurrentTarget(
-          finishOnTouchOutsideOfCurrentTarget: Boolean
-      ): Builder = apply {
-        this.finishOnTouchOutsideOfCurrentTarget = finishOnTouchOutsideOfCurrentTarget
-      }
+
+    fun build(): Spotlight {
 
       val spotlight = SpotlightView(activity, null, 0, backgroundColor)
       val targets = requireNotNull(targets) { "targets should not be null. " }
