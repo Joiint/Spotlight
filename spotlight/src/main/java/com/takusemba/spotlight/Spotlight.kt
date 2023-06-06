@@ -236,7 +236,7 @@ class Spotlight private constructor(
         if (this@Builder.finishOnTouchOutsideOfCurrentTarget) {
           spotlightView.setOnTouchOutsideOfCurrentTargetListener(
               object : OnTouchOutsideOfCurrentTargetListener {
-                override fun onEvent() = finishSpotlight()
+                override fun onEvent() = next()
               }
           )
         }
